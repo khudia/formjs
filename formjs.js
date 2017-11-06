@@ -8,6 +8,7 @@ Mail: me@regesh.ru
 */
 var formjs = {
     config: {
+        debug:0,
         form: null,
         formData: null,
         url: null,
@@ -87,9 +88,13 @@ var formjs = {
             })
         }
     },
-    sendForm: function() {
+    sendForm: function() {        
         app = this;
+        debug = app.config.debug;
         $(app.config.info).text(app.config.loadingtext);
+        if ( debug == 1 ) {
+            console.log( app.config.formData );
+        }
             $.ajax({
                     url: app.config.url,
                     type: 'POST',
@@ -97,7 +102,7 @@ var formjs = {
                     contentType: false,
                     processData: false,
                     data: {
-                        formdata:app.config.formData
+                        formjs:app.config.formData
                     },
                     success: function(result) {
                         console.log(result)
@@ -112,6 +117,9 @@ var formjs = {
                     $(app.config.info).text(error);
                 })
                 .done(function(result) {
+                  if ( debug == 1 ) {
+                    console.log( result );
+                    }
                     app.config.result = result;
                 });
     },
