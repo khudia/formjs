@@ -101,9 +101,7 @@ var formjs = {
                     cache: false,
                     contentType: false,
                     processData: false,
-                    data: {
-                        formjs:app.config.formData
-                    },
+                    data:app.config.formData,
                     success: function(result) {
                         console.log(result)
                         app.config.form.trigger('reset');
