@@ -37,5 +37,5 @@
  - **filetext** - Text for custom fileinput button
  - **filename** - Class for custom fileinput buttons
  
- **Remote include***
+ **Remote include**
  https://cdn.rawgit.com/khudia/formjs/7780772b/formjs.js
