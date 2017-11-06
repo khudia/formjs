@@ -38,4 +38,4 @@
  - **filename** - Class for custom fileinput buttons
  
  **Remote include**
- https://cdn.rawgit.com/khudia/formjs/7780772b/formjs.js
+ https://cdn.rawgit.com/khudia/formjs/9c2f47b5/formjs.js
