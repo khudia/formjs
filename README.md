@@ -36,3 +36,6 @@
  - **loadingtext** - Mess when form is sending
  - **filetext** - Text for custom fileinput button
  - **filename** - Class for custom fileinput buttons
+ 
+ **Remote include***
+ https://cdn.rawgit.com/khudia/formjs/7780772b/formjs.js
