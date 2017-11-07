@@ -47,4 +47,4 @@
  - **successSend()** - inits if ajax request successed
  
  **Remote include**
- https://cdn.rawgit.com/khudia/formjs/9c2f47b5/formjs.js
+ https://cdn.rawgit.com/khudia/formjs/8ed276ac/formjs.js
