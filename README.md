@@ -20,6 +20,7 @@
 
 ----------
 **Init examples**
+***Minimal configuration is that it needs to be submit button and attribute action placed in form element***
  1. Default
 		  - `formjs.init('#formid');`
  2. With options
@@ -36,6 +37,13 @@
  - **loadingtext** - Mess when form is sending
  - **filetext** - Text for custom fileinput button
  - **filename** - Class for custom fileinput buttons
+ 
+ ----------
+**List of of actions you can call**
+ - **beforeSend()** - inits before ajax request sent
+ - **afterSend()** - inits after ajax request sent
+ - **errorSend()** - inits if ajax request return error
+ - **successSend()** - inits if ajax request successed
  
  **Remote include**
  https://cdn.rawgit.com/khudia/formjs/9c2f47b5/formjs.js
