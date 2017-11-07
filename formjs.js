@@ -1,7 +1,7 @@
 /*
 Mail script to send form data. Support file sending
 Homepage: 
-Version: 0.1;
+Version: 0.2;
 Dependecies : jQuery
 Author: Georgy Khudiakov
 Mail: me@regesh.ru
@@ -26,7 +26,7 @@ var formjs = {
     beforeSend: function() {},
     afterSend: function() {},
     errorSend: function() {},
-    successSend: function() {}
+    successSend: function() {},
     debug: function(data) {
         if (typeof data == 'undefined') {
             data = this.config;
