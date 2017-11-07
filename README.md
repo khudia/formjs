@@ -20,7 +20,7 @@
 
 ----------
 **Init examples**
-***Minimal configuration is that it needs to be submit button and attribute action placed in form element***
+**Minimal configuration is that it needs to be submit button and attribute action placed in form element**
  1. Default
 		  - `formjs.init('#formid');`
  2. With options
@@ -31,9 +31,9 @@
 **List of options**
 
  - **submit** - Add link with any placed id to replace default submit. Default submit must have "hidden" attr.
- -  **info** - Id of element where messeges will be placed
+ - **info** - Id of element where messeges will be placed
  - **infotext** - Text after form sending completed succesfully
- -  **infotextdelay** - How long success message will be shown
+ - **infotextdelay** - How long success message will be shown
  - **loadingtext** - Mess when form is sending
  - **filetext** - Text for custom fileinput button
  - **filename** - Class for custom fileinput buttons
