@@ -20,6 +20,7 @@
 
 ----------
 **Init examples**
+
 **Minimal configuration is that it needs to be submit button and attribute action placed in form element**
  1. Default
 		  - `formjs.init('#formid');`
