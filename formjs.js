@@ -8,7 +8,7 @@ Mail: me@regesh.ru
 */
 var formjs = {
     config: {
-        debug:0,
+        debug: 0,
         form: null,
         formData: null,
         url: null,
@@ -21,8 +21,12 @@ var formjs = {
         filename: 'fileholder',
         filestart: '<button type="button" class="btn fileholder">',
         fileend: '</button>',
-        result:null
+        result: null
     },
+    beforeSend: function() {},
+    afterSend: function() {},
+    errorSend: function() {},
+    successSend: function() {}
     debug: function(data) {
         if (typeof data == 'undefined') {
             data = this.config;
@@ -54,7 +58,6 @@ var formjs = {
             e.preventDefault();
             app.sendForm();
         });
-
     },
     setFileButtons: function() {
         var app = this;
@@ -88,38 +91,39 @@ var formjs = {
             })
         }
     },
-    sendForm: function() {        
+    sendForm: function() {
         app = this;
         debug = app.config.debug;
         $(app.config.info).text(app.config.loadingtext);
-        if ( debug == 1 ) {
-            console.log( app.config.formData );
+        if (debug == 1) {
+            console.log(app.config.formData);
         }
-            $.ajax({
-                    url: app.config.url,
-                    type: 'POST',
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    data:app.config.formData,
-                    success: function(result) {
-                        console.log(result)
-                        app.config.form.trigger('reset');
-                        $('.' + app.config.filename).text(app.config.filetext);
-                        app.animateStatus();
-                    }
-                })
-                .fail(function(jqXHR, textStatus, errorThrown){
-                    var error = jqXHR.status+' '+jqXHR.statusText;
-                    console.log(jqXHR);
-                    $(app.config.info).text(error);
-                })
-                .done(function(result) {
-                  if ( debug == 1 ) {
-                    console.log( result );
-                    }
-                    app.config.result = result;
-                });
+        app.beforeSend();
+        $.ajax({
+            url: app.config.url,
+            type: 'POST',
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: app.config.formData,
+            success: function(result) {
+                app.config.form.trigger('reset');
+                $('.' + app.config.filename).text(app.config.filetext);
+                app.animateStatus();
+                app.successSend();
+            }
+        }).fail(function(jqXHR, textStatus, errorThrown) {
+            var error = jqXHR.status + ' ' + jqXHR.statusText;
+            console.log(jqXHR);
+            $(app.config.info).text(error);
+            app.errorSend();
+        }).done(function(result) {
+            if (debug == 1) {
+                console.log(result);
+            }
+            app.config.result = result;
+            app.afterSend();
+        });
     },
     animateStatus: function() {
         app = this;
